@@ -1,0 +1,100 @@
+<div class="row">
+    <div class="col-md-6">
+      <h1>Create A New Post</h1>
+      <hr>
+    </div>
+    <div class="col-md-2 ">
+  
+    </div>
+    <div class="col-md-4 ">
+      <h3>Main Image</h3>
+    </div>
+  </div>
+  <form #myForm="ngForm" (ngSubmit)="createPost(myForm)">
+    <div class="row">
+  
+      <div class="col-md-6">
+        <div class="mb-3">
+          <label for="type">Type</label>
+          <input type="text" id="type" class="form-control" name="type" ngModel placeholder="Enter a Type For The Post">
+        </div>
+        <!-- new element -->
+        <div class="mb-3">
+          <label for="price">Price</label>
+          <input type="number" id="price" class="form-control" name="price" ngModel placeholder="Enter a price For The Post">
+        </div>
+        <div class="mb-3">
+          <label for="specialprice">Special Price</label>
+          <input type="number" id="specialprice" class="form-control" name="specialprice" ngModel placeholder="Enter a specialprice For The Post">
+        </div>
+        <div class="mb-3">
+          <label for="area">Area</label>
+          <input type="number" id="area" class="form-control" name="area" ngModel placeholder="Enter a area For The Post">
+        </div>
+        <div class="mb-3">
+          <label for="bed">Bed</label>
+          <input type="number" id="bed" class="form-control" name="bed" ngModel placeholder="Enter a bed For The Post">
+        </div>
+        <div class="mb-3">
+          <label for="bath">Bath</label>
+          <input type="number" id="bath" class="form-control" name="bath" ngModel placeholder="Enter a bath For The Post">
+        </div>
+        <div class="mb-3">
+          <label for="wifi">Wifi</label>
+          <input type="boolean" id="wifi" class="form-control" name="wifi" ngModel placeholder="Enter a wifi For The Post">
+        </div>
+         <!-- new element -->
+  
+        <div class="mb-3">
+          <label for="address">Address</label>
+          <editor
+            id="address"
+            apiKey="3rygim2zami94a25ku3ifdatf8en1h3kl2uqeb2nwghugo95"
+            [init]="{
+       height: 500,
+       menubar: false,
+       plugins: [
+         'advlist autolink lists link image charmap print preview anchor',
+         'searchreplace visualblocks code fullscreen',
+         'insertdatetime media table paste code help wordcount'
+       ],
+       toolbar: 'undo redo | formatselect | bold italic backcolor forecolor | alignleft aligncenter alignright alignjustify | bullist numlist outdent indent | removeformat | help'
+     }"
+            name="address"
+            ngModel
+          ></editor>
+        </div>
+        <div class="mb-3">
+          <label for="categories">Categories</label>
+          <br>
+          <select id="categories" class="form-control" name="category" ngModel>
+            <option value="">Select a Category</option>
+            <ng-container *ngFor="let c of categories">
+              <option [value]="c.id">{{c.title}}</option>
+            </ng-container>
+          </select>
+        </div>
+        <div class="my-3">
+          <button class="btn btn-success" type="submit">Create Post</button>
+        </div>
+  
+  
+      </div>
+      <div class="col-md-2 ">
+  
+      </div>
+      <div class="col-md-4 mx-auto">
+        <div class="my-2">
+          <p-progressBar [value]="uploadProgress" *ngIf="showProgress"></p-progressBar>
+        </div>
+        <input type="file" (change)="preview($event)" name="main-image" accept="image/*" class="d-none" #filebrowser>
+        <div class="main-image">
+          <img [src]="imgUrl" alt="{{altText}}" class="img-fluid">
+        </div>
+        <button pButton (click)="filebrowser.click()" type="button" class="d-block my-4 p-button-success p-button-raised"><i class="pi pi-upload"></i> &nbsp;&nbsp;File Upload</button>
+      </div>
+      <p-toast position="bottom-center"></p-toast>
+    </div>
+  </form>
+  <p-toast position="bottom-center"></p-toast>
+  

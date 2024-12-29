@@ -1,0 +1,12 @@
+.stat-container {
+    text-align: center;
+    margin: 20px;
+  }
+  h2 {
+    font-size: 2em;
+    color: #4CAF50;
+  }
+  p {
+    font-size: 1.2em;
+    color: #555;
+  }

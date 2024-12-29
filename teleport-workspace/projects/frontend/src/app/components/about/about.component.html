@@ -1,0 +1,58 @@
+<app-header></app-header><br><br><br><br><br>
+<!-- Why Choose Us start -->
+<div class="why-choose-us-container">
+    <div class="image-container">
+      <img src="/assets/about1.jpg" alt="Building Image">
+    </div>
+    <div class="content-container">
+      <h2>Why Choose Us?</h2>
+      <div class="stars">★★★★★</div>
+      <p>Transparent Pricing: No hidden fees, just straightforward and honest leasing terms.</p>
+      <p>Dedicated Support: Our team is here for you 24/7 to ensure a seamless renting experience.</p>
+      <p>Innovative Living: Cutting-edge technology integrated into your home for modern convenience.</p>
+      <button (click)="contactUs()">Contact Us</button>
+    </div>
+  </div><br><br>
+  <!-- Why Choose Us end -->
+   <!-- steps start -->
+    
+   <h1 style="text-align: center;">3 Simple Steps</h1><br><br>
+   <div class="steps-container">
+    <div class="step" *ngFor="let step of steps">
+      <div class="icon">
+        <img [src]="step.icon" style="height: 160px; width: 180px;"alt="{{step.title}} icon">
+      </div>
+      <h2>{{step.title}}</h2>
+      <p>{{step.description}}</p>
+    </div>
+  </div><br><br>
+    <!-- steps end -->
+
+    <!-- client review start -->
+    <h1 style="text-align: center;">Client's Reviews</h1><br><br>
+    <div class="reviews-container">
+        <div class="review-card" *ngFor="let review of reviews">
+          <img [src]="review.clientImage" style="height: 300px; width: 400px;" alt="Client photo">
+          <p class="client-name">{{ review.clientName }}</p>
+          <div class="star-rating">
+            <span *ngFor="let star of [1,2,3,4,5]" [class.filled]="star <= review.rating">★</span>
+          </div>
+          <p class="review-text">{{ review.reviewText }}</p>
+        </div>
+    </div><br><br>
+       <!-- client review end -->
+         <!-- client review2 start -->
+       <div class="reviews-container">
+        <div class="review-card" *ngFor="let review of reviews2">
+          <img [src]="review.clientImage" style="height: 300px; width: 400px;" alt="Client photo">
+          <p class="client-name">{{ review.clientName }}</p>
+          <div class="star-rating">
+            <span *ngFor="let star of [1,2,3,4,5]" [class.filled]="star <= review.rating">★</span>
+          </div>
+          <p class="review-text">{{ review.reviewText }}</p>
+        </div>
+      </div><br><br>
+       <!-- client review2 end -->
+       <app-footer></app-footer>
+  
+  

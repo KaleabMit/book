@@ -1,0 +1,8 @@
+.container-xxl{
+    background-image: url('../../../../../../../api/uploads/dot-background.jpg');
+    background-size: cover; /* Ensure the background image covers the entire area */
+    background-position: center; /* Center the background image */
+    background-repeat: no-repeat; /* Prevent the background image from repeating */
+    padding: 2rem; /* Add padding around the content */
+    color: #ffffff; /* Ensure text color contrasts with the background */
+}

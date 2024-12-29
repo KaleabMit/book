@@ -1,0 +1,9 @@
+<div class="profile-container" *ngIf="user">
+      <img [src]="user.photo" alt="{{user.firstname}} {{user.lastname}}" class="profile-image">
+      <div class="profile-details">
+            <div class="sb-nav-link-icon">{{user.firstname}} </div>
+            <div class="sb-nav-link-icon">{{user.lastname}} </div>
+            <div class="sb-nav-link-icon">{{user.email}} </div>
+      </div>
+    </div>
+    

@@ -1,0 +1,35 @@
+<div class="main-content">
+  <div class="text-content">
+    <h4 style="color: black;">Live the<span class="highlight"> Family Dream</span> with <span class="highlight">Teleport</span>, Your New  <span class="highlight">Home Awaits.</span></h4>
+    <p>We serve well organized homes, anyone who wants rent and buy his home this our site <span class="highlight">Teleport-Home</span> is the right place. Please check our service well.</p>
+    <a href="#start"><button mat-raised-button class="get-started">Visit Homes</button></a>
+  </div>
+  <app-image-slider></app-image-slider>
+</div> 
+<div class="container-xxl py-5">
+  <div class="container">
+    <div class="text-center mx-auto mb-5 wow fadeInUp" data-wow-delay="0.1s" style="max-width: 600px;">
+      <h3 class="mb-3">Home Categories</h3>
+      <p>We serve well organized homes, anyone who wants rent and buy his home this our site Teleport-Home is the right place. Please check our service well.</p>
+    </div>
+    <div class="container">
+      <div class="row">
+        <ng-container *ngFor="let c of cats; let i = index">
+          <div class="col-md-3 mb-4">
+            <div class="rounded p-4 text-center">
+              <div class="icon mb-3" style="width: 110px; height: 110px;">
+                <img class="card-img-top" [src]="c.photo" alt="{{c.photo}}" />
+                <h4 style="color: #a2d2ff;">
+                  <a (click)="navigateAndScroll('start', c.title)">{{c.title}}</a>
+                </h4>
+                <span style="font-size: small;color: #ffafcc;">100 Properties</span>
+              </div>
+            </div>
+          </div>
+          <div class="w-100" *ngIf="(i + 1) % 4 === 0"></div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
+</div>
+

@@ -1,0 +1,102 @@
+<div class="card mb-4">
+    <div class="card-header">
+      <i class="fas fa-table me-1"></i>
+      All Tenants
+    </div>
+    <div class="card-body">
+      <p-table #dt1 [value]="personaldetails" responsiveLayout="scroll" dataKey="id" [rows]="5" [showCurrentPageReport]="true"
+               [rowsPerPageOptions]="[5,10,15,20,50]" styleClass="p-datatable-gridlines" [paginator]="true"
+               currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
+               [globalFilterFields]="['firstname', 'lastname', 'email', 'phone']">
+  
+        <ng-template pTemplate="caption">
+          <div class="flex">
+            <button pButton class="p-button p-button-info p-button-outlined" (click)="clear(dt1)">
+              <i class="pi pi-filter-slash"></i>&nbsp; Clear
+            </button>
+            <span class="p-input-icon-left ml-auto">
+              <input pInputText type="text" (input)="filterText($event)" placeholder="Search keyword" #search class="p-inputtext p-inputtext-sm"/>
+            </span>
+          </div>
+        </ng-template>
+        <ng-template pTemplate="header">
+          <tr>
+            <th pSortableColumn="firstname">First-Name
+              <p-sortIcon field="firstname"></p-sortIcon>
+            </th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <th pSortableColumn="lastname">Last-Name
+              <p-sortIcon field="lastname"></p-sortIcon>
+            </th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <th pSortableColumn="email">Email
+              <p-sortIcon field="email"></p-sortIcon>
+            </th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <th pSortableColumn="phone">Phone
+              <p-sortIcon field="phone"></p-sortIcon>
+            </th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <th pSortableColumn="country">Country
+              <p-sortIcon field="country"></p-sortIcon>
+            </th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <th pSortableColumn="checkin">CheckIn
+              <p-sortIcon field="checkin"></p-sortIcon>
+            </th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <th pSortableColumn="checkout">CheckOut
+              <p-sortIcon field="checkout"></p-sortIcon>
+            </th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <th pSortableColumn="identity">Identity
+              <p-sortIcon field="identity"></p-sortIcon>
+            </th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <th pSortableColumn="retaldate">RentalDate
+              <p-sortIcon field="retaldate"></p-sortIcon>
+            </th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <th pSortableColumn="status">Status
+              <p-sortIcon field="status"></p-sortIcon>
+            </th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <th pSortableColumn="children">Children
+              <p-sortIcon field="children"></p-sortIcon>
+            </th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <th pSortableColumn="postsId">PostsId
+              <p-sortIcon field="postsId"></p-sortIcon>
+            </th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <th pSortableColumn="categoryId">CategoryId
+              <p-sortIcon field="categoryId"></p-sortIcon>
+            </th>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <th>Actions</th>
+          </tr>
+        </ng-template>
+        <ng-template pTemplate="body" let-personaldetail>
+          <tr>
+            <td>{{personaldetail.firstname}}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <td>{{personaldetail.lastname}}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <td>{{personaldetail.email}}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <td>{{personaldetail.phone}}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <td>{{personaldetail.country}}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <td>{{personaldetail.checkin}}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <td>{{personaldetail.checkout}}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <td>{{personaldetail.identity}}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <td>{{personaldetail.rentaldate}}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <td>{{personaldetail.status}}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <td>{{personaldetail.children}}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <td>{{personaldetail.postsId}}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <td>{{personaldetail.categoryId}}</td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <td>
+              
+              <div class="d-flex justify-content-start align-items-center">
+                <span class="text-danger cursor-pointer d-inline-block" (click)="removeMessage(personaldetail.id)">
+                  <i class="pi pi-trash"></i> Delete
+                </span>
+                <span class="mx-3 text-primary cursor-pointer d-inline-block" [routerLink]="['/adminnew-messaging', personaldetail.id]">
+                  <i class="pi pi-reply"></i> Messaging
+                </span>
+              </div>
+              
+              
+              
+              
+            </td>
+          </tr>
+        </ng-template>
+      </p-table>
+    </div>
+  </div>
+  <p-toast position="bottom-center"></p-toast>
+  

@@ -1,0 +1,35 @@
+<div class="container-wrapper">
+    <div class="contact-form-container">
+      <div>
+        <p (click)="toggleMessageDisplay(); toggleForwardDisplay()" [ngStyle]="{'cursor': 'pointer'}">{{ getLandlordMessage() }} <a *ngIf="forwardDisplay"><a [innerHTML]="forward"></a></a></p>
+        <hr>
+        <p [ngStyle]="{'cursor': 'pointer'}">Unread Message</p><hr>
+        <p (click)="toggleMessageDisplay()" [ngStyle]="{'cursor': 'pointer'}">Incomplete Message</p>
+      </div>
+    </div>
+  
+    <div  *ngIf="messageDisplay" class="message-form-container">
+      <p [innerHTML]="message"></p>
+      <button *ngIf="!replyClicked" (click)="toggleReply()"><h6><i class="fa fa-reply text-primary me-2"></i>Reply</h6></button>
+    </div>
+  
+    <div *ngIf="replyDisplay" class="message-form-container">
+      <form id="contactForm" #messageForm="ngForm" (ngSubmit)="onSubmit(messageForm)">
+        <div class="form-group">
+          <label for="message">Reply</label>
+          <textarea id="message" 
+                    name="message" 
+                    placeholder="Your Replies" 
+                    rows="5" 
+                    ngModel
+                    #message="ngModel"
+                    required></textarea>
+          <span *ngIf="message.invalid && (message.dirty || message.touched)" class="text-danger">
+            <small *ngIf="message.errors?.['required']">Reply is required.</small>
+          </span>
+        </div>
+        <button type="submit" class="submit-button">Send Reply</button>
+      </form>
+    </div>
+  </div>
+  

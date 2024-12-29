@@ -1,0 +1,148 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .container-xxl {
+    padding: 2rem;
+  }
+  
+  .cat-item {
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s;
+  }
+  
+  .cat-item:hover {
+    transform: scale(1.05);
+  }
+  
+  .cat-item .icon img {
+    width: 100px;
+    height: 100px;
+    transition: transform 0.3s;
+  }
+  
+  .cat-item:hover .icon img {
+    transform: scale(1.2);
+  }
+  
+  .cat-item .icon::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100px;
+    height: 100px;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: width 0.5s, height 0.5s, top 0.5s, left 0.5s;
+  }
+  
+  .cat-item:hover .icon::before {
+    width: 200%;
+    height: 200%;
+    top: 50%;
+    left: 50%;
+  }
+  
+  .cat-item h2 {
+    margin-top: 1rem;
+    font-weight: normal;
+    transition: font-weight 0.3s;
+  }
+  
+  .cat-item:hover h2 {
+    font-weight: bold;
+  }
+  
+  .cat-item span {
+    display: block;
+    margin-top: 0.5rem;
+    color: #777;
+    transition: color 0.3s;
+  }
+  
+  .cat-item:hover span {
+    color: #333;
+  }
+  
+  @keyframes wave {
+    0% {
+      transform: translateX(0);
+    }
+    50% {
+      transform: translateX(-10px);
+    }
+    100% {
+      transform: translateX(0);
+    }
+  }
+  
+  .cat-item {
+    animation: wave 2s infinite ease-in-out;
+  }
+  
+  @media (min-width: 576px) {
+    .col-sm-6 {
+      flex: 0 0 auto;
+      width: 50%;
+    }
+  }
+  
+  @media (min-width: 992px) {
+    .col-lg-3 {
+      flex: 0 0 auto;
+      width: 25%;
+    }
+  }
+
+  
+  .main-content {
+    display: flex;
+    justify-content: space-between;
+    padding: 50px;
+  }
+  
+  .text-content {
+    max-width: 50%;
+  }
+  
+  .text-content h1 {
+    font-size: 36px;
+    color: #333;
+  }
+  
+  .text-content .highlight {
+    color: #d91a1a;
+  }
+  
+  .text-content p {
+    color: #666;
+    margin: 20px 0;
+  }
+  
+  .get-started {
+    background-color: #00aaff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  
+  .image-content img {
+    width: 300px;
+    height: auto;
+    margin-left: 20px;
+  }
+
+  .main-content {
+    background-image: url('../../../../../../../api/uploads/white-dot.jpg');
+    background-size: cover; /* Ensure the background image covers the entire area */
+    background-position: center; /* Center the background image */
+    background-repeat: no-repeat; /* Prevent the background image from repeating */
+    padding: 2rem; /* Add padding around the content */
+    color: #ffffff; /* Ensure text color contrasts with the background */
+  }

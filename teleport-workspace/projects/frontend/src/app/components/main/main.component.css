@@ -1,0 +1,29 @@
+/* start Custom CSS to make the navbar sticky at the top */
+.sticky-top {
+  position: sticky;
+  top: 0;
+  z-index: 10030;
+}
+/* end Custom CSS to make the navbar sticky at the top */
+
+
+/* start CSS to make the footer sticky at the bottom */
+body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0;
+  }
+  
+  .main-content {
+    flex: 1;
+  }
+  
+  .footer {
+    position: sticky;
+    bottom: 0;
+    width: 100%;
+    background-color: lightgray; /* Adjust as necessary */
+  }
+  /* end CSS to make the footer sticky at the bottom */
+  

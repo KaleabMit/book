@@ -1,0 +1,45 @@
+<app-header></app-header>
+<br><br><br>
+<div class="background-container"> 
+  <video autoplay muted loop id="backgroundVideo">
+    <source src="/assets/hero_video-CGjzevle.mp4" type="video/mp4">
+  </video>
+  <div class="content">
+    <h1>Welcome to Teleport-Home Site</h1> 
+    <p>Enjoy with what our services are!</p>
+  </div>
+</div>
+<app-category-list></app-category-list>
+<div class="container-xxl py-5">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12">
+        <div class="card mb-4">
+          <a href="#!"><img class="card-img-top" src="/assets/progress.gif" alt="..." /></a>
+          <div class="card-body">
+            <p class="card-text" style="color: black;">We serve well-organized homes. Anyone who wants to rent or buy a home, Teleport-Home is the right place. Please check our service well.</p>
+          </div>
+        </div>
+        <div class="row" id="start">
+          <ng-container *ngFor="let p of filteredPosts">
+            <div class="col-lg-3">
+              <div class="card mb-4">
+                <a href="#!"><img class="card-img-top" [src]="p.photo" alt="{{p.type}}" /></a>
+                <div class="card-body" style="color: black;">
+                  <h2 class="card-title h4"><i class="fas fa-building text-primary me-2"></i>&nbsp;{{p.category.title}}</h2>
+                  <h2 class="card-title h4"><i class="fas fa-map-marker-alt text-primary me-2"></i>&nbsp;{{p.address}}</h2>
+                  <p class="card-text"><i class="fas fa-align-left text-primary me-2"></i>&nbsp;{{p.address.substr(0,30)}}...</p>
+                  <a class="btn btn-primary" routerLink="/post/detail/{{p.id}}" routerLinkActive="router-link-active">Read more →</a>
+                </div>
+              </div>
+            </div>
+          </ng-container>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<app-property-agents></app-property-agents>
+<app-reviews-rates></app-reviews-rates>
+<app-client-feedback></app-client-feedback>
+<app-footer></app-footer>

@@ -1,0 +1,20 @@
+<div class="container-wrapper">
+  <div class="message-form-container">
+    <form id="contactForm" #messageForm="ngForm" (ngSubmit)="onSubmit(messageForm)">
+      <div class="form-group">
+        <label for="message">Messages</label>
+        <textarea id="message" 
+                  name="message" 
+                  placeholder="Your Messages" 
+                  rows="5" 
+                  ngModel
+                  #message="ngModel"
+                  required></textarea>
+        <span *ngIf="message.invalid && (message.dirty || message.touched)" class="text-danger">
+          <small *ngIf="message.errors?.['required']">Messages are required.</small>
+        </span>
+      </div>
+      <button type="submit" class="submit-button">Send Messages</button>
+    </form>
+  </div>
+</div>

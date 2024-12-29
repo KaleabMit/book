@@ -1,0 +1,100 @@
+/* Container styling with animations and effects */
+.profile-container {
+    animation: fadeIn 2s ease-in-out;
+    background: linear-gradient(to right, #457b9d, #1d3557);
+    border-radius: 10px;
+    padding: 15px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    overflow: hidden;
+    width: 50%; /* Decreased width */
+    max-width: 300px; /* Reduced max-width */
+    height: 450px; /* Increased height */
+    margin: 0.5px 0; /* Remove auto for left alignment */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start; /* Align items to the left */
+  }
+  
+  /* Water wave effect */
+  .profile-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: radial-gradient(circle at 50% 50%, rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0));
+    opacity: 0;
+    animation: waterWave 5s infinite;
+  }
+  
+  @keyframes waterWave {
+    0%, 100% {
+      opacity: 0;
+      transform: translateX(-50%);
+    }
+    50% {
+      opacity: 0.7;
+      transform: translateX(50%);
+    }
+  }
+  
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: scale(0.9);
+    }
+    to {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+  
+  /* Image styling with hover effect */
+  .profile-image {
+    width: 50px; 
+    height: 50px;
+    border-radius: 50%;
+    transition: transform 0.3s, box-shadow 0.3s;
+    cursor: pointer;
+  }
+  
+  .profile-image:hover {
+    transform: scale(1.1);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Profile details styling */
+  .profile-details {
+    text-align: left; /* Align text to the left */
+    margin-top: 10px;
+  }
+  
+  .card-title {
+    animation: slideIn 1s ease-in-out;
+    color: #457b9d;
+    margin: 10px 0;
+  }
+  
+  .card-title span {
+    display: inline-block;
+    transition: color 0.3s, transform 0.3s;
+  }
+  
+  .card-title span:hover {
+    color: #457b9d;
+    transform: translateY(-3px);
+  }
+  
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  

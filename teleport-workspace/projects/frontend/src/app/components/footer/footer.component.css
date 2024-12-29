@@ -1,0 +1,104 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+  
+  .footer .icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s, color 0.3s;
+  }
+  
+  .footer .icon img {
+    width: 50px;
+    height: 50px;
+    transition: transform 0.3s, filter 0.3s;
+  }
+  
+  .footer .icon:hover img {
+    transform: scale(1.2);
+    filter: brightness(1.2);
+  }
+  
+  .footer .btn-social {
+    position: relative;
+    display: inline-block;
+    margin-right: 10px;
+    color: #fff;
+    font-size: 18px;
+    border-radius: 50%;
+    overflow: hidden;
+    transition: color 0.3s, background-color 0.3s, transform 0.3s;
+  }
+  
+  .footer .btn-social:hover {
+    color: #00aaff;
+    background-color: rgba(255, 255, 255, 0.3);
+    transform: scale(1.1);
+  }
+  
+  .footer .btn-social::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: rgba(255, 255, 255, 0.3);
+    transition: all 0.75s;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    z-index: 0;
+  }
+  
+  .footer .btn-social:hover::before {
+    width: 400%;
+    height: 400%;
+  }
+  
+  .footer a {
+    color: #fff;
+    transition: color 0.3s, font-weight 0.3s;
+  }
+  
+  .footer a:hover {
+    color: #00aaff;
+    font-weight: bold;
+  }
+  
+  .footer .img-fluid {
+    transition: transform 0.5s, filter 0.5s;
+  }
+  
+  .footer .img-fluid:hover {
+    transform: scale(1.1);
+    filter: brightness(1.2);
+  }
+  
+  .footer .container-xxl {
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .footer .container-xxl::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(0, 0, 0, 0.1);
+    transition: width 1s, height 1s, top 1s, left 1s;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .footer .container-xxl:hover::before {
+    width: 200%;
+    height: 200%;
+    top: 50%;
+    left: 50%;
+  }
+  

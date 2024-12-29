@@ -1,0 +1,60 @@
+<app-header></app-header>
+<ng-container *ngIf="post | async as p">
+    <div class="container mt-5">
+      <div class="row">
+        <div class="col-lg-8">
+          <article>
+            <header class="mb-4">
+              <h4 class="fw-bolder mb-1">Teleport-Homes Detail Page!</h4>
+              <a class="badge bg-secondary text-decoration-none link-light" href="#!">{{p.type}}</a>
+            </header>
+            <figure class="mb-4" style="width: 250px;height: 250px;"><img class="img-fluid rounded" [src]="p.photo" alt="{{p.type}}" /></figure>
+            <section class="details-grid">
+                <div class="detail-item">
+                  <p class="fs-5 mb-4"><i class="fas fa-map-marker-alt text-primary me-2"></i>&nbsp; Address: {{p.address}}</p>
+                </div>
+                <div class="detail-item">
+                  <p class="fs-5 mb-4"><i class="fas fa-dollar-sign text-primary me-2"></i>&nbsp;Price: {{p.price}}</p>
+                </div>
+                <div class="detail-item">
+                  <p class="fs-5 mb-4"><i class="fas fa-tag text-primary me-2"></i>&nbsp;Special Price: {{p.specialprice}}</p>
+                </div>
+                <div class="detail-item">
+                  <p class="fs-5 mb-4"><i class="fas fa-arrows-alt text-primary me-2"></i>&nbsp;Area: {{p.area}}</p>
+                </div>
+                <div class="detail-item">
+                  <p class="fs-5 mb-4"><i class="fas fa-bed text-primary me-2"></i>&nbsp;Bed: {{p.bed}}</p>
+                </div>
+                <div class="detail-item">
+                  <p class="fs-5 mb-4"><i class="fas fa-bath text-primary me-2"></i>&nbsp;Bath: {{p.bath}}</p>
+                </div>
+                <div class="detail-item">
+                  <p class="fs-5 mb-4"><i class="fas fa-wifi text-primary me-2"></i>&nbsp;Wifi: {{p.wifi}}</p>
+                </div>
+              </section>
+          </article>
+        </div>
+      </div>
+    </div>
+  </ng-container>
+    <div class="container">
+        <div class="booking">
+            <label for="checkin">Check-in</label>
+            <input type="date" id="checkin" name="checkin">
+            <label for="checkout">Check-out</label>
+            <input type="date" id="checkout" name="checkout">
+            <label for="guests">Guests</label>
+            <select id="guests" name="guests">
+                <option value="2">2 guests (2 adults, 0 children)</option>
+                <option value="3">3 guests (2 adults, 1 child)</option>
+                <option value="4">4 guests (2 adults, 2 children)</option>
+                <option value="5">5 guests (2 adults, 3 children)</option>
+                <option value="6">6 guests (2 adults, 4 children)</option>
+            </select>
+            <button type="button" routerLink="/personaldetails">Check availability</button>
+        </div>
+    </div>
+    <app-footer></app-footer>
+   
+ 
+  

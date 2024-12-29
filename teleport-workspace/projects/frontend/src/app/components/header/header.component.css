@@ -1,0 +1,51 @@
+.navbar {
+  background-color: goldenrod; /* Customize the background color */
+  background-image: url('../../../../../../../api/uploads/dots-shape.jpg');
+  position: fixed; /* Make the navbar fixed at the top */
+  top: 0; /* Position it at the top of the page */
+  width: 100%; /* Make it full width */
+  z-index: 1000; /* Ensure it stays on top of other elements */
+  padding: 1rem; /* Add padding for better spacing */
+}
+.navbar-brand img {
+  height: 40px;
+}
+.navbar-nav .nav-link {
+  color: #ffffff;
+  margin-right: 10px;
+}
+.navbar-nav .nav-link:hover {
+  color: #ffc107;
+}
+.form-inline .form-control {
+  width: 250px;
+}
+.btn-outline-success {
+  color: #ffffff;
+  border-color: #ffffff;
+}
+.btn-outline-success:hover {
+  color: #343a40;
+  background-color: #ffffff;
+  border-color: #ffffff;
+}
+.rounded-circle {
+  border-radius: 50%;
+}
+
+/* search bar */
+.form-control {
+  position: relative;
+  padding-right: 2.5rem;
+}
+
+.search-icon {
+  position: absolute;
+  top: 50%;
+  right: 10px;
+  transform: translateY(-50%);
+  background-color: #ffffff; 
+  padding: 1px;
+  cursor: pointer; 
+}
+

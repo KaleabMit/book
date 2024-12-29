@@ -1,0 +1,73 @@
+<nav class="navbar navbar-expand-lg navbar-chocolate bg-chocolate">
+    <div class="container-fluid">
+      <a class="navbar-brand d-flex align-items-center" href="/">
+        <h4 class="m-0 text-primary ms-2"> <img src="assets/teleportlogo.png" alt="Teleport Logo" class="img-fluid" style="width: 114px; height: 30px;"></h4>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" routerLink="/home">HOME</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/about">ABOUT</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="propertyDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              PROPERTY
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="propertyDropdown">
+              <li><a class="dropdown-item" routerLink="/property-list">Property List</a></li>
+              <li><a class="dropdown-item" routerLink="/property-type">Property Type</a></li>
+              <li><a class="dropdown-item" routerLink="/property-agents">Property Agents</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="pagesDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              PAGES
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="pagesDropdown">
+              <li><a class="dropdown-item" routerLink="/reviews">Reviews</a></li>
+              <li><a class="dropdown-item" routerLink="/blogs">Blogs</a></li>
+            </ul>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/contact">CONTACT</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/have-share">HAVE SHARE</a>
+          </li>
+        </ul>
+        <form class="d-flex position-relative" (submit)="onSearch($event)">
+          <input class="form-control me-2" type="search" placeholder="Search your home" aria-label="Search" [(ngModel)]="searchTerm" name="searchTerm">
+          <i class="pi pi-search search-icon" (click)="onSearch($event)"> 
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search">
+              <circle cx="11" cy="11" r="8"/>
+              <path d="m21 21-4.3-4.3"/>
+            </svg>
+          </i>
+        </form>
+        <div class="d-flex align-items-center ms-3" *ngIf="user">
+          <div *ngIf="isLoggedIn(); else guestLinks">
+            <img [src]="user.photo" alt="{{user.firstname}} {{user.lastname}}" class="rounded-circle position-absolute top-0 end-1 me-3" style="width: 30px; height: 30px;">
+            <span style="color: wheat;">{{user.firstname}}</span>
+    <a routerLink="/main" class="position-absolute top-0 end-0 me-3">
+      <button class="btn btn-link btn-sm"><i class="fas fa-bars"></i></button>
+    </a>
+  </div>
+  </div>
+  <ng-template #guestLinks>
+    <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+      <img src="assets/user.png" alt="User Icon" class="rounded-circle" style="width: 30px; height: 30px;">
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="userDropdown">
+      <li><a class="dropdown-item" routerLink="/login">Login</a></li>
+      <li><a class="dropdown-item" routerLink="/signup">SignUp</a></li>
+    </ul>
+  </ng-template>
+      </div>
+    </div>
+  </nav>
+  

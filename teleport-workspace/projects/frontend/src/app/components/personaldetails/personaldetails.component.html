@@ -1,0 +1,99 @@
+<div class="container">
+  <h2>Personal details</h2>
+  <form [formGroup]="personalDetailsForm" (ngSubmit)="onSubmit()">
+    <label for="firstname">First name</label>
+    <input type="text" id="firstname" formControlName="firstname" required>
+    <div *ngIf="personalDetailsForm.controls['firstname'].invalid && (personalDetailsForm.controls['firstname'].dirty || personalDetailsForm.controls['firstname'].touched)">
+      <small *ngIf="personalDetailsForm.controls['firstname'].errors?.['required']" class="text-danger">First name is required.</small>
+    </div>
+
+    <label for="lastname">Last name</label>
+    <input type="text" id="lastname" formControlName="lastname" required>
+    <div *ngIf="personalDetailsForm.controls['lastname'].invalid && (personalDetailsForm.controls['lastname'].dirty || personalDetailsForm.controls['lastname'].touched)">
+      <small *ngIf="personalDetailsForm.controls['lastname'].errors?.['required']" class="text-danger">Last name is required.</small>
+    </div>
+
+    <label for="email">Email address</label>
+    <input type="email" id="email" formControlName="email" required>
+    <div *ngIf="personalDetailsForm.controls['email'].invalid && (personalDetailsForm.controls['email'].dirty || personalDetailsForm.controls['email'].touched)">
+      <small *ngIf="personalDetailsForm.controls['email'].errors?.['required']" class="text-danger">Email is required.</small>
+      <small *ngIf="personalDetailsForm.controls['email'].errors?.['email']" class="text-danger">Email is invalid.</small>
+    </div>
+
+    <label for="phone">Phone number</label>
+    <input type="tel" id="phone" formControlName="phone" required>
+    <div *ngIf="personalDetailsForm.controls['phone'].invalid && (personalDetailsForm.controls['phone'].dirty || personalDetailsForm.controls['phone'].touched)">
+      <small *ngIf="personalDetailsForm.controls['phone'].errors?.['required']" class="text-danger">Phone number is required.</small>
+      <small *ngIf="personalDetailsForm.controls['phone'].errors?.['pattern']" class="text-danger">Phone number is invalid.</small>
+    </div>
+
+    <label for="country">Country</label>
+    <select id="country" class="form-control" formControlName="country" required>
+      <option value="">Select a Country</option>
+      <option value="Ethiopia">Ethiopia</option>
+      <option value="United State Of America">United State Of America</option>
+      <option value="English">English</option>
+    </select>
+
+    <div class="family-select-container">
+      <div class="col-md-4 mx-auto">
+        <div class="booking">
+          <label for="checkin">Check-in</label>
+          <input type="date" id="checkin" formControlName="checkin" required>
+
+          <label for="checkout">Check-out</label>
+          <input type="date" id="checkout" formControlName="checkout" required>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 mx-auto">
+      <div class="my-2">
+        <p-progressBar [value]="uploadProgress" *ngIf="showProgress"></p-progressBar>
+      </div>
+      <label for="identity">Upload ID Card</label>
+      <input type="file" (change)="preview($event)" id="identity" formControlName="identity" accept=".jpg, .jpeg, .png, .gif, .pdf, .docx" class="d-none" #filebrowser>
+      <div class="main-image">
+        <img [src]="imgUrl" alt="{{altText}}" class="img-fluid">
+      </div>
+      <button pButton (click)="filebrowser.click()" type="button" class="d-block my-4 p-button-success p-button-raised"><i class="pi pi-upload"></i> &nbsp;&nbsp;Upload ID Card</button>
+    </div>
+
+    <div class="family-select-container">
+      <label for="status">Family Status</label>
+      <select id="status" class="form-control" formControlName="status" required>
+        <option value="">Select a Status</option>
+        <option value="single">Single</option>
+        <option value="married">Married</option>
+      </select>
+
+      <div class="mb-3">
+        <label for="children">Number of Children</label>
+        <input type="number" id="children" class="form-control" formControlName="children" placeholder="Enter number of children" required>
+      </div>
+    </div>
+
+    <div class="mb-3">
+      <label for="posts">Posts</label>
+      <select id="posts" class="form-control" formControlName="posts" required>
+        <option value="">Select a Post</option>
+        <ng-container *ngFor="let p of post">
+          <option [value]="p.id">{{p.address}}</option>
+        </ng-container>
+      </select>
+    </div>
+   
+    <div class="mb-3">
+      <label for="category">Categories</label>
+      <select id="category" class="form-control" formControlName="category" required>
+        <option value="">Select a Category</option>
+        <ng-container *ngFor="let c of categories">
+          <option [value]="c.id">{{c.title}}</option>
+        </ng-container>
+      </select>
+    </div>
+
+    <button class="btn" type="submit">Next</button>
+    <p-toast position="bottom-center"></p-toast>
+  </form>
+</div>
