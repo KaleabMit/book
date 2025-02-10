@@ -1,4 +1,4 @@
-import { IsNotEmpty, IsNumber, IsString, IsDate } from 'class-validator';
+import { IsNotEmpty, IsNumber, IsString, IsDate, IsOptional, IsEmail } from 'class-validator';
 
 export class CreatePersonaldetailDto {
   @IsNotEmpty()
@@ -10,7 +10,7 @@ export class CreatePersonaldetailDto {
   lastname: string;
 
   @IsNotEmpty()
-  @IsString()
+  @IsEmail()
   email: string;
 
   @IsNotEmpty()
@@ -22,12 +22,12 @@ export class CreatePersonaldetailDto {
   country: string;
 
   @IsNotEmpty()
-  @IsDate()
-  checkin: Date;
+  @IsString()
+  checkin: String;
 
   @IsNotEmpty()
-  @IsDate()
-  checkout: Date;
+  @IsString()
+  checkout: String;
 
   @IsNotEmpty()
   @IsString()
@@ -37,7 +37,8 @@ export class CreatePersonaldetailDto {
   @IsString()
   status: string;
 
-  @IsString()
+  @IsNotEmpty()
+  @IsNumber()
   children: number;
 
   @IsNotEmpty()
