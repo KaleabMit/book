@@ -30,6 +30,10 @@ export class User {
     default: UserRoles.Reader,
   })
   roles: UserRoles;
+  
+  @Column({ default: false })
+  isVerified: boolean;
+
 
   @OneToMany(() => Post, (post) => post.user)
   posts: Post[];

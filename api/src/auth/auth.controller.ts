@@ -17,7 +17,7 @@ async userLogin(@Body() userLoginDto:UserLoginDto,@Res() res:Response) {
 const{token,user}=await this.authService.login(userLoginDto);
 
 
-res.cookie('IsAuthenticated', true, {maxAge:2*60*60*1000})// max age 2 hour
+res.cookie('IsAuthenticated', true, {maxAge:2*60*60*1000})
 res.cookie('Authentication',token,{
   httpOnly:true,
   maxAge:2*60*60*1000
@@ -29,14 +29,14 @@ return res.send( {success:true,user});
 async userRegistration(@Body() userCreateDto:CreateUserDto){
   return this.authService.register(userCreateDto);
 }
-//Route to return current authentication state
+
 
 @Get('authstatus')
 @UseGuards(CurrentUserGuard)
 authStatus(@CurrentUser() user:User){
   return{status: !!user,user}
 }
-//Route to logout the user
+
 
 @Post('logout')
 logout(@Req() req:Request,@Res() res: Response){
@@ -45,4 +45,3 @@ logout(@Req() req:Request,@Res() res: Response){
   return res.status(200).send({success:true});
 }
 }
-

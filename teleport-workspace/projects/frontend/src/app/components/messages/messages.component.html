@@ -1,35 +1,20 @@
-<div class="container-wrapper">
-    <div class="contact-form-container">
-      <div>
-        <p (click)="toggleMessageDisplay(); toggleForwardDisplay()" [ngStyle]="{'cursor': 'pointer'}">{{ getLandlordMessage() }} <a *ngIf="forwardDisplay"><a [innerHTML]="forward"></a></a></p>
-        <hr>
-        <p [ngStyle]="{'cursor': 'pointer'}">Unread Message</p><hr>
-        <p (click)="toggleMessageDisplay()" [ngStyle]="{'cursor': 'pointer'}">Incomplete Message</p>
+<div class="card mb-4">
+  <div class="card-header">
+    <i class="fas fa-table me-1"></i> Message Details for Reply {{ replyId }}
+  </div>
+  <div class="card-body">
+    <div *ngIf="loading">
+      <p>Loading reply details...</p>
+    </div>
+    <div *ngIf="!loading && reply">
+      <div style="color: rgb(177, 211, 200);">
+        <p><strong>From:</strong> {{ reply.user?.firstname }} {{reply.user?.lastname}}</p>
+        <p><strong>Date:</strong>{{reply.replydate}}</p><hr>
       </div>
+      <p><strong>Message:</strong> {{ reply.message }}</p>
     </div>
-  
-    <div  *ngIf="messageDisplay" class="message-form-container">
-      <p [innerHTML]="message"></p>
-      <button *ngIf="!replyClicked" (click)="toggleReply()"><h6><i class="fa fa-reply text-primary me-2"></i>Reply</h6></button>
-    </div>
-  
-    <div *ngIf="replyDisplay" class="message-form-container">
-      <form id="contactForm" #messageForm="ngForm" (ngSubmit)="onSubmit(messageForm)">
-        <div class="form-group">
-          <label for="message">Reply</label>
-          <textarea id="message" 
-                    name="message" 
-                    placeholder="Your Replies" 
-                    rows="5" 
-                    ngModel
-                    #message="ngModel"
-                    required></textarea>
-          <span *ngIf="message.invalid && (message.dirty || message.touched)" class="text-danger">
-            <small *ngIf="message.errors?.['required']">Reply is required.</small>
-          </span>
-        </div>
-        <button type="submit" class="submit-button">Send Reply</button>
-      </form>
+    <div *ngIf="!loading && !reply">
+      <p>No details found for this reply.</p>
     </div>
   </div>
-  
+</div>

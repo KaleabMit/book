@@ -17,13 +17,13 @@
       </ng-template>
       <ng-template pTemplate="body" let-reply>
         <tr>
-          <td>{{ reply.message }}</td>
+          <td>{{ reply.message | slice:0:10 }}{{ reply.message.length > 10 ? '...' : '' }}</td>
           <td>{{ reply.user?.id }}</td>
           <td>
             <div class="d-flex justify-content-start align-items-center">
               <span 
               class="mx-3 text-primary cursor-pointer d-inline-block" 
-              [routerLink]="['/messages', reply.userId]">
+              [routerLink]="['/messages', reply.id]">
               <i class="pi pi-reply"></i> Reply
             </span>
             

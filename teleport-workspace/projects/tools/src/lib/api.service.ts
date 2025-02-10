@@ -226,4 +226,15 @@ removeReplies(id: number): Observable<{ success: boolean }> {
       observe: 'events'
     });
   }
+
+
+
+
+
+
+
+  
+  getReplyOnlyById(replyId: number): Observable<Reply>  {
+    return this.http.get<Reply>(`${this.URL}/reply/${replyId}`);
+  }
 }

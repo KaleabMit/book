@@ -26,7 +26,7 @@
             </th>
             <th pSortableColumn="user">UsersId
               <p-sortIcon field="userId"></p-sortIcon>
-            </th>
+            </th> 
             <th>
               Actions
             </th>
@@ -36,13 +36,14 @@
           <tr>
             <td>{{reply.message}}</td>
             <td>{{reply.userId}}</td>
+            <!-- <td>{{reply.personaldetail.personaldetailId}}</td> -->
             <td>
               <div class="d-flex justify-content-start align-items-center">
                 <span class="text-danger cursor-pointer d-inline-block" (click)="removeReplies(reply.id)"><i class="pi pi-trash"></i> Delete</span>
                 <!-- <span class="mx-3 text-primary cursor-pointer d-inline-block" routerLink="/admin-messaging/:userId"><i class="pi pi-reply"></i> Reply</span> -->
                 <span 
                 class="mx-3 text-primary cursor-pointer d-inline-block" 
-                [routerLink]="['/admin-messaging', reply.userId]">
+                [routerLink]="['/admin-messaging', reply.id]">
                 <i class="pi pi-reply"></i> Reply
               </span>
               

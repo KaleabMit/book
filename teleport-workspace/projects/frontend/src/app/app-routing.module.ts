@@ -49,7 +49,7 @@ const routes: Routes = [
     children:[
       {path:'',redirectTo:'posts',pathMatch:'full'},
       {path:'dashboard',component:DashboardComponent},
-      {path:'messages/:userId',component:MessagesComponent},
+      {path:'messages/:replyId',component:MessagesComponent},
       {path:'reply', component:ReplyComponent},
       {path: 'profile', component: ProfileComponent},
       {path:'posts',
